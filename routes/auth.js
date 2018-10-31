@@ -25,9 +25,10 @@ router.get("/register", function(req, res){
      User.register(newUser, req.body.password, function(err, user){
          if(err){
              console.log(err);
-             return res.render("register");
+             return res.render("register", {"error": err.message});
          }
          passport.authenticate("local")(req, res, function(){
+            req.flash("success", "Successfully Signed Up! Nice to meet you " + req.body.username);
             res.redirect("/campgrounds"); 
          });
      });
@@ -38,7 +39,7 @@ router.get("/register", function(req, res){
  //==========================================
  //show login form
  router.get("/login", function(req,res){
-    res.render("login",{message: req.flash("error")}); //error here comes from index.js middlewareObj.isLoggedIn code
+    res.render("login"); //error here comes from index.js middlewareObj.isLoggedIn code
 });
 
 //login logic
@@ -55,6 +56,7 @@ router.post("/login",passport.authenticate("local",
 //=============================================
 router.get("/logout",function(req,res){
    req.logout();
+   req.flash("success","Signed you out");
    res.redirect("/campgrounds");
 });
 
