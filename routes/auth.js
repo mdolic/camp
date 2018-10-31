@@ -38,7 +38,7 @@ router.get("/register", function(req, res){
  //==========================================
  //show login form
  router.get("/login", function(req,res){
-    res.render("login");
+    res.render("login",{message: req.flash("error")}); //error here comes from index.js middlewareObj.isLoggedIn code
 });
 
 //login logic

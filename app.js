@@ -9,6 +9,7 @@ const Comment = require("./models/comment");
 const User = require("./models/user");
 const seedDB = require("./seeds");
 const methodOverride = require("method-override");
+const flash = require("connect-flash");
 
 //required route files
 const commentRoutes = require("./routes/comments"),
@@ -22,6 +23,7 @@ app.set("view engine", "ejs"); //this just lets me set the view so its ejs and i
 app.use(express.static(__dirname + "/public"));
 //seedDB(); //executes a remove or add of comments/users/campgrounds
 app.use(methodOverride("_method"));
+app.use(flash());
 
 //=====================
 //passport configuration
