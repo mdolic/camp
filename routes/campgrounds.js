@@ -3,16 +3,16 @@ const express = require("express");
 const router = express.Router();
 const Campground = require("../models/campground");
 const middleware = require("../middleware");
+
 //INDEX ROUTE TO SHOW ALL CAMPGROUNDS
 //when we have a page that shows all of the campgrounds
-router.get("/", function(req,res){
-        
+router.get("/", function(req,res){     
     //need to get all campgrounds from Db here
     Campground.find({},function(err,allCampgrounds){
        if(err){
             console.log(err);
        } else{
-         res.render("campgrounds/index", {campgrounds: allCampgrounds}); // second campgrounds is where the data is being passed in
+         res.render("campgrounds/index", {campgrounds: allCampgrounds, page:'campgrounds'}); // second campgrounds is where the data is being passed in
        }
     });
 });

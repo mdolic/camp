@@ -16,7 +16,7 @@ router.get("/", function (req,res){
 
 // show register form
 router.get("/register", function(req, res){
-    res.render("register"); 
+    res.render("register",{page:'register'}); 
  });
 
  //handle sign up logic
@@ -39,7 +39,7 @@ router.get("/register", function(req, res){
  //==========================================
  //show login form
  router.get("/login", function(req,res){
-    res.render("login"); //error here comes from index.js middlewareObj.isLoggedIn code
+    res.render("login", {page:'login'}); //error here comes from index.js middlewareObj.isLoggedIn code
 });
 
 //login logic
