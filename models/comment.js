@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 //schema for comments
 const commentSchema = mongoose.Schema({
     text: String,
+    createdAt:{type: Date, default: Date.now},
     author:
     {
         id:

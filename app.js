@@ -24,6 +24,7 @@ app.use(express.static(__dirname + "/public"));
 //seedDB(); //executes a remove or add of comments/users/campgrounds
 app.use(methodOverride("_method"));
 app.use(flash());
+app.locals.moment = require('moment');
 
 //=====================
 //passport configuration
