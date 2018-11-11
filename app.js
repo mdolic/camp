@@ -21,7 +21,7 @@ const commentRoutes = require("./routes/comments"),
 // let url = process.env.DATABASEURL || "mongodb://mdolic1:adaymia1@ds159273.mlab.com:59273/dkrogue"
 // mongoose.connect(url); //mongolab database
 
-mongoose.connect('mongodb://miki:amari1@ds159273.mlab.com:59273/dkrogue', { useNewUrlParser: true });
+
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs"); //this just lets me set the view so its ejs and i dont ahve to use ejs below in renderr
@@ -56,8 +56,13 @@ app.use(authRoutes);
 app.use("/campgrounds/:id/comments",commentRoutes);
 app.use("/campgrounds",campgroundRoutes);
 
+//heroku + database set up 
+
+//mongoose.connect('mongodb://miki:amari1@ds159273.mlab.com:59273/dkrogue', { useNewUrlParser: true });
+const port = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp';
+mongoose.connect(port);
 //heroku + mongo labs listens on localhost:5000
-app.listen(5000,function(){ 
+app.listen(port, function(){ 
     console.log("Yelp camp server has started!");
 });
 
