@@ -53,7 +53,7 @@ app.use("/campgrounds/:id/comments",commentRoutes);
 app.use("/campgrounds",campgroundRoutes);
 
 //heroku + mongo labs listens on localhost:5000
-app.listen(5000,function(){ 
+app.listen(3000,function(){ 
     console.log("Yelp camp server has started!");
 });
 
