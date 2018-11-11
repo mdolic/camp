@@ -55,7 +55,7 @@ app.use("/campgrounds",campgroundRoutes);
 const port = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp' ;
 mongoose.connect(port);
 //heroku + mongo labs listens on localhost:5000
-app.listen(port, function(){ 
+app.listen(process.env.PORT, 3000, function(){ 
     console.log("Yelp camp server has started!");
 });
 
