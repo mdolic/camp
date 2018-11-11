@@ -59,7 +59,7 @@ app.use("/campgrounds",campgroundRoutes);
 //heroku + database set up 
 
 //mongoose.connect('mongodb://miki:amari1@ds159273.mlab.com:59273/dkrogue', { useNewUrlParser: true });
-const port = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp';
+const port = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp' ;
 mongoose.connect(port);
 //heroku + mongo labs listens on localhost:5000
 app.listen(port, function(){ 
