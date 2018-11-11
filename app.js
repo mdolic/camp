@@ -18,7 +18,8 @@ const commentRoutes = require("./routes/comments"),
 
 
 //mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true }); //localhost 3000 server
-mongoose.connect("mongodb://mdolic1:adaymia1@ds159273.mlab.com:59273/dkrogue"); //mongolab database
+/\
+mongoose.connect(process.env.DATABASEURL); //mongolab database
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs"); //this just lets me set the view so its ejs and i dont ahve to use ejs below in renderr
 app.use(express.static(__dirname + "/public"));
