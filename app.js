@@ -16,7 +16,7 @@ const commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     authRoutes = require("./routes/auth")
 //mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp");
-var url = process.env.DATABASEURL || "mongodb://mdolic1:blackd1@ds143241.mlab.com:43241/yelpcamp";
+var url = process.env.PORT || "mongodb://mdolic1:blackd1@ds143241.mlab.com:43241/yelpcamp";
 var connectOptions = {useNewUrlParser: true};
 mongoose.connect(url, connectOptions);
 
