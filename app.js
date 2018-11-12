@@ -54,12 +54,10 @@ app.use("/campgrounds",campgroundRoutes);
 //mongoose.connect('mongodb://<dbuser></dbuser>:<password>@ds159273.mlab.com:59273/dkrogue', { useNewUrlParser: true });
 mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp
 
-const port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 
 //heroku + mongo labs listens on localhost:5000
-app.listen(port, function(){ 
-    console.log("Yelp camp server has started!");
-});
+app.listen(port);
 
 // //just locally on 3000 listens on localhost:3000
 // app.listen(3000,function(){ 
