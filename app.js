@@ -54,10 +54,12 @@ app.use("/campgrounds",campgroundRoutes);
 //mongoose.connect('mongodb://<dbuser></dbuser>:<password>@ds159273.mlab.com:59273/dkrogue', { useNewUrlParser: true });
 mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp
 
-var port = process.env.PORT || 'mongodb://mdolic:blackd1@ds143241.mlab.com:43241/yelpcamp';
-mongoose.connect(port);
+const url = process.env.DATABASEURL || ("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true });
+mongoose.connect(url)
+//mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp");
+
 //heroku + mongo labs listens on localhost:5000
-app.listen(port, 5000, function(){
+app.listen(url, function(){
     console('starting...');
 });
 
