@@ -51,11 +51,12 @@ app.use("/campgrounds/:id/comments",commentRoutes);
 app.use("/campgrounds",campgroundRoutes);
 
 
-const url = process.env.PORT || "mongodb://localhost:27017/yelp_camp";
-mongoose.connect(url)
+
 //mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp");
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+var connectOptions = {useNewUrlParser: true};
+mongoose.connect(url, connectOptions);
 
 //heroku + mongo labs listens on localhost:5000
-app.listen(url, function(){
-    console('starting...');
-});
+app.listen(url, connectOptions);
+
