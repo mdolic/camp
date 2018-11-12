@@ -51,10 +51,7 @@ app.use("/campgrounds/:id/comments",commentRoutes);
 app.use("/campgrounds",campgroundRoutes);
 
 
-//mongoose.connect('mongodb://<dbuser></dbuser>:<password>@ds159273.mlab.com:59273/dkrogue', { useNewUrlParser: true });
-mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp
-
-const url = process.env.DATABASEURL || ("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true });
+const url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp";
 mongoose.connect(url)
 //mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp");
 
@@ -62,8 +59,3 @@ mongoose.connect(url)
 app.listen(url, function(){
     console('starting...');
 });
-
-// //just locally on 3000 listens on localhost:3000
-// app.listen(3000,function(){ 
-//     console.log("Yelp camp server has started!");
-// });
