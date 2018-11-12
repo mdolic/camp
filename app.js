@@ -55,7 +55,7 @@ app.use("/campgrounds",campgroundRoutes);
 mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp
 
 var port = process.env.PORT || 3000;
-
+mongoose.connect(port);
 //heroku + mongo labs listens on localhost:5000
 app.listen(port);
 
