@@ -58,5 +58,5 @@ var connectOptions = {useNewUrlParser: true};
 mongoose.connect(url, connectOptions);
 
 //heroku + mongo labs listens on localhost:5000
-app.listen(url, connectOptions);
+app.listen(url);
 
