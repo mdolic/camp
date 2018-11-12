@@ -15,7 +15,10 @@ const flash = require("connect-flash");
 const commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     authRoutes = require("./routes/auth")
-
+//mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp");
+var url = process.env.DATABASEURL || "mongodb://mdolic1:blackd1@ds143241.mlab.com:43241/yelpcamp";
+var connectOptions = {useNewUrlParser: true};
+mongoose.connect(url, connectOptions);
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs"); //this just lets me set the view so its ejs and i dont ahve to use ejs below in renderr
@@ -52,10 +55,7 @@ app.use("/campgrounds",campgroundRoutes);
 
 
 
-//mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp");
-var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
-var connectOptions = {useNewUrlParser: true};
-mongoose.connect(url, connectOptions);
+
 
 //heroku + mongo labs listens on localhost:5000
 app.listen(process.env.PORT,url);
