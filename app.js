@@ -57,7 +57,9 @@ mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp
 var port = process.env.PORT || 'mongodb://mdolic:blackd1@ds143241.mlab.com:43241/yelpcamp';
 mongoose.connect(port);
 //heroku + mongo labs listens on localhost:5000
-app.listen(port);
+app.listen(port, 5000, function(){
+    console('starting...');
+});
 
 // //just locally on 3000 listens on localhost:3000
 // app.listen(3000,function(){ 
