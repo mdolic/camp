@@ -51,7 +51,7 @@ app.use("/campgrounds/:id/comments",commentRoutes);
 app.use("/campgrounds",campgroundRoutes);
 
 
-const url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp";
+const url = process.env.PORT || "mongodb://localhost:27017/yelp_camp";
 mongoose.connect(url)
 //mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds143241.mlab.com:43241/yelpcamp");
 
